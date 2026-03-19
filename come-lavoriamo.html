@@ -75,7 +75,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 24px;display:f
 #arc-orbit{position:absolute;pointer-events:none}
 
 /* ── HERO TEXT ── */
-.arc-title{font-family:"Instrument Serif",serif;font-size:clamp(1.7rem,5.5vw,2.8rem);font-weight:400;letter-spacing:-.02em;line-height:1.15;text-align:center;margin-bottom:14px;max-width:640px;padding:0 20px}
+.arc-title{font-family:"Instrument Serif",serif;font-size:clamp(2.1rem,6.5vw,3.6rem);font-weight:400;letter-spacing:-.02em;line-height:1.15;text-align:center;margin-bottom:14px;max-width:640px;padding:0 20px}
 .arc-title em{font-style:italic;color:rgba(255,255,255,.48)}
 .arc-sub{font-size:.85rem;color:rgba(255,255,255,.38);text-align:center;line-height:1.7;max-width:480px;padding:0 20px;margin-bottom:48px}
 
@@ -160,6 +160,29 @@ footer{position:relative;z-index:10;border-top:1px solid rgba(255,255,255,.06);p
 
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── EMAIL WIDGET ── */
+.email-widget{position:fixed;bottom:28px;left:24px;z-index:5000;width:52px;height:52px;border-radius:50%;background:#fff;color:#000;border:none;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(255,255,255,.15);cursor:pointer;transition:transform .2s,box-shadow .2s}
+.email-widget:hover{transform:scale(1.08) translateY(-2px);box-shadow:0 8px 28px rgba(255,255,255,.25)}
+@media(hover:none){.email-widget{bottom:20px;left:16px}}
+.email-overlay{position:fixed;inset:0;z-index:4000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,0);pointer-events:none;transition:background .3s ease}
+.email-overlay.open{background:rgba(0,0,0,.72);pointer-events:all;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.email-modal{position:relative;width:100%;max-width:400px;background:rgba(12,10,24,.97);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:36px 28px 28px;box-shadow:0 40px 80px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.06);opacity:0;transform:scale(.85) translateY(28px);transition:opacity .35s cubic-bezier(.34,1.15,.64,1),transform .35s cubic-bezier(.34,1.15,.64,1);pointer-events:none}
+.email-overlay.open .email-modal{opacity:1;transform:scale(1) translateY(0);pointer-events:all}
+.email-modal-header{margin-bottom:24px}
+.email-modal-title{font-family:"Instrument Serif",serif;font-size:1.6rem;font-weight:400;letter-spacing:-.02em;margin-bottom:4px}
+.email-modal-sub{font-size:.78rem;color:rgba(255,255,255,.38)}
+.email-form{display:flex;flex-direction:column;gap:16px}
+.email-field{display:flex;flex-direction:column;gap:6px}
+.email-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.email-input{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 14px;color:#fff;font-family:"Sora",sans-serif;font-size:.85rem;transition:border-color .2s,background .2s;outline:none;width:100%}
+.email-input::placeholder{color:rgba(255,255,255,.2)}
+.email-input:focus{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.08)}
+.email-textarea{resize:vertical;min-height:110px}
+.email-submit{padding:14px;border-radius:14px;background:#fff;color:#000;font-family:"Sora",sans-serif;font-size:.86rem;font-weight:700;border:none;cursor:pointer;transition:opacity .2s,transform .15s;margin-top:4px}
+.email-submit:hover{opacity:.88;transform:translateY(-1px)}
+.email-modal-close{position:absolute;top:16px;right:18px;background:none;border:none;color:rgba(255,255,255,.3);font-size:1rem;cursor:pointer;transition:color .2s;padding:4px;line-height:1}
+.email-modal-close:hover{color:rgba(255,255,255,.7)}
 </style>
 </head>
 <body>
@@ -680,7 +703,60 @@ var io=new IntersectionObserver(function(entries){
 },{threshold:.08});
 revs.forEach(function(el){io.observe(el)});
 
+/* ── EMAIL MODAL ── */
+var emailWidget=document.getElementById("emailWidget");
+var emailOverlay=document.getElementById("emailOverlay");
+var emailModalClose=document.getElementById("emailModalClose");
+function openEmailModal(){emailOverlay.classList.add("open");document.body.style.overflow="hidden"}
+function closeEmailModal(){emailOverlay.classList.remove("open");document.body.style.overflow=""}
+emailWidget.addEventListener("click",openEmailModal);
+emailModalClose.addEventListener("click",closeEmailModal);
+emailOverlay.addEventListener("click",function(e){if(e.target===emailOverlay)closeEmailModal()});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeEmailModal()});
+if(window.matchMedia("(hover:hover)").matches){
+  [emailWidget,emailModalClose,document.querySelector(".email-submit")].forEach(function(el){
+    if(!el)return;
+    el.addEventListener("mouseenter",function(){if(typeof ring!=="undefined")ring.classList.add("hovered")});
+    el.addEventListener("mouseleave",function(){if(typeof ring!=="undefined")ring.classList.remove("hovered")});
+  });
+}
+
 })();
 </script>
+
+<!-- ── EMAIL FLOAT BUTTON ── -->
+<button class="email-widget" id="emailWidget" aria-label="Inviaci un messaggio">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+  </svg>
+</button>
+
+<!-- ── EMAIL MODAL ── -->
+<div id="emailOverlay" class="email-overlay">
+  <div class="email-modal" id="emailModal">
+    <div class="email-modal-header">
+      <h3 class="email-modal-title">Scrivici</h3>
+      <p class="email-modal-sub">Rispondiamo entro 24 ore.</p>
+    </div>
+    <form class="email-form" action="https://formspree.io/f/xyknlnde" method="POST">
+      <div class="email-field">
+        <label class="email-label" for="form-name">Nome</label>
+        <input class="email-input" type="text" id="form-name" name="name" placeholder="Il tuo nome" required/>
+      </div>
+      <div class="email-field">
+        <label class="email-label" for="form-email">Email</label>
+        <input class="email-input" type="email" id="form-email" name="email" placeholder="tua@email.com" required/>
+      </div>
+      <div class="email-field">
+        <label class="email-label" for="form-message">Messaggio</label>
+        <textarea class="email-input email-textarea" id="form-message" name="message" placeholder="Raccontaci il tuo progetto..." required></textarea>
+      </div>
+      <input type="hidden" name="_subject" value="Nuovo contatto da tevwebstudio.it"/>
+      <button class="email-submit" type="submit">Invia messaggio →</button>
+    </form>
+    <button class="email-modal-close" id="emailModalClose" aria-label="Chiudi">✕</button>
+  </div>
+</div>
 </body>
 </html>
