@@ -78,6 +78,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 24px;display:f
 .hero-cta{display:inline-block;padding:16px 50px;background:#fff;color:#000;font-family:"Sora",sans-serif;font-size:.93rem;font-weight:700;letter-spacing:-.01em;border-radius:100px;border:none;cursor:none;text-decoration:none;margin-bottom:28px;box-shadow:0 4px 24px rgba(255,255,255,.1);transition:transform .15s,box-shadow .2s;animation:fadeUp .8s ease .65s both}
 .hero-cta:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(255,255,255,.18)}
 .hero-sub{font-size:clamp(.88rem,3.5vw,1.05rem);font-weight:600;line-height:1.55;text-align:center;color:rgba(255,255,255,.55);max-width:520px;animation:fadeUp .8s ease .8s both}
+.hero-studio-label{font-family:"Sora",sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.28);text-align:center;margin-top:10px;margin-bottom:14px;animation:fadeUp .8s ease .55s both}
 .hint{display:flex;align-items:center;gap:9px;font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:26px;animation:fadeUp .8s ease 1.6s both;transition:opacity .4s ease}
 .hint-pulse{width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(180,140,255,.7);display:flex;align-items:center;justify-content:center;font-size:.7rem;animation:hintPulse 2.2s ease-in-out 2s infinite}
 @keyframes hintPulse{0%,100%{border-color:rgba(180,140,255,.5);box-shadow:none}50%{border-color:rgba(180,140,255,1);box-shadow:0 0 14px rgba(150,100,255,.6)}}
@@ -280,6 +281,29 @@ footer{position:relative;z-index:10;border-top:1px solid rgba(255,255,255,.06);p
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes avatarPop{from{opacity:0;transform:translate(-50%,-50%) scale(.45)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* ── EMAIL WIDGET ── */
+.email-widget{position:fixed;bottom:28px;left:24px;z-index:5000;width:52px;height:52px;border-radius:50%;background:#fff;color:#000;border:none;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(255,255,255,.15);cursor:pointer;transition:transform .2s,box-shadow .2s}
+.email-widget:hover{transform:scale(1.08) translateY(-2px);box-shadow:0 8px 28px rgba(255,255,255,.25)}
+@media(hover:none){.email-widget{bottom:20px;left:16px}}
+.email-overlay{position:fixed;inset:0;z-index:4000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,0);pointer-events:none;transition:background .3s ease}
+.email-overlay.open{background:rgba(0,0,0,.72);pointer-events:all;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.email-modal{position:relative;width:100%;max-width:400px;background:rgba(12,10,24,.97);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:36px 28px 28px;box-shadow:0 40px 80px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.06);opacity:0;transform:scale(.85) translateY(28px);transition:opacity .35s cubic-bezier(.34,1.15,.64,1),transform .35s cubic-bezier(.34,1.15,.64,1);pointer-events:none}
+.email-overlay.open .email-modal{opacity:1;transform:scale(1) translateY(0);pointer-events:all}
+.email-modal-header{margin-bottom:24px}
+.email-modal-title{font-family:"Instrument Serif",serif;font-size:1.6rem;font-weight:400;letter-spacing:-.02em;margin-bottom:4px}
+.email-modal-sub{font-size:.78rem;color:rgba(255,255,255,.38)}
+.email-form{display:flex;flex-direction:column;gap:16px}
+.email-field{display:flex;flex-direction:column;gap:6px}
+.email-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.email-input{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 14px;color:#fff;font-family:"Sora",sans-serif;font-size:.85rem;transition:border-color .2s,background .2s;outline:none;width:100%}
+.email-input::placeholder{color:rgba(255,255,255,.2)}
+.email-input:focus{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.08)}
+.email-textarea{resize:vertical;min-height:110px}
+.email-submit{padding:14px;border-radius:14px;background:#fff;color:#000;font-family:"Sora",sans-serif;font-size:.86rem;font-weight:700;border:none;cursor:pointer;transition:opacity .2s,transform .15s;margin-top:4px}
+.email-submit:hover{opacity:.88;transform:translateY(-1px)}
+.email-modal-close{position:absolute;top:16px;right:18px;background:none;border:none;color:rgba(255,255,255,.3);font-size:1rem;cursor:pointer;transition:color .2s;padding:4px;line-height:1}
+.email-modal-close:hover{color:rgba(255,255,255,.7)}
 </style>
 </head>
 <body>
@@ -308,6 +332,7 @@ footer{position:relative;z-index:10;border-top:1px solid rgba(255,255,255,.06);p
   <div class="hero-name-wrap">
     <h1 class="hero-name" data-text="T&amp;V.">T&amp;V<em>.</em></h1>
   </div>
+  <p class="hero-studio-label">Web Studio</p>
   <a href="#about" class="hero-cta">Scopri come lavoriamo</a>
   <p class="hero-sub">Progettiamo siti web e landing page ad alta conversione per piccole imprese e professionisti. Design curato, codice pulito, SEO che funziona davvero.</p>
 </section>
@@ -505,6 +530,41 @@ footer{position:relative;z-index:10;border-top:1px solid rgba(255,255,255,.06);p
   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<!-- ── EMAIL FLOAT BUTTON ── -->
+<button class="email-widget" id="emailWidget" aria-label="Inviaci un messaggio">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+  </svg>
+</button>
+
+<!-- ── EMAIL MODAL ── -->
+<div id="emailOverlay" class="email-overlay">
+  <div class="email-modal" id="emailModal">
+    <div class="email-modal-header">
+      <h3 class="email-modal-title">Scrivici</h3>
+      <p class="email-modal-sub">Rispondiamo entro 24 ore.</p>
+    </div>
+    <form class="email-form" action="https://formspree.io/f/xyknlnde" method="POST">
+      <div class="email-field">
+        <label class="email-label" for="form-name">Nome</label>
+        <input class="email-input" type="text" id="form-name" name="name" placeholder="Il tuo nome" required/>
+      </div>
+      <div class="email-field">
+        <label class="email-label" for="form-email">Email</label>
+        <input class="email-input" type="email" id="form-email" name="email" placeholder="tua@email.com" required/>
+      </div>
+      <div class="email-field">
+        <label class="email-label" for="form-message">Messaggio</label>
+        <textarea class="email-input email-textarea" id="form-message" name="message" placeholder="Raccontaci il tuo progetto..." required></textarea>
+      </div>
+      <input type="hidden" name="_subject" value="Nuovo contatto da tevwebstudio.it"/>
+      <button class="email-submit" type="submit">Invia messaggio →</button>
+    </form>
+    <button class="email-modal-close" id="emailModalClose" aria-label="Chiudi">✕</button>
+  </div>
+</div>
+
 <script>
 (function(){
 "use strict";
@@ -677,7 +737,26 @@ var revs=document.querySelectorAll(".rv");
 var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target)}})},{threshold:.1});
 revs.forEach(function(el){io.observe(el)});
 
+/* ── EMAIL MODAL ── */
+var emailWidget=document.getElementById("emailWidget");
+var emailOverlay=document.getElementById("emailOverlay");
+var emailModalClose=document.getElementById("emailModalClose");
+function openEmailModal(){emailOverlay.classList.add("open");document.body.style.overflow="hidden"}
+function closeEmailModal(){emailOverlay.classList.remove("open");document.body.style.overflow=""}
+emailWidget.addEventListener("click",openEmailModal);
+emailModalClose.addEventListener("click",closeEmailModal);
+emailOverlay.addEventListener("click",function(e){if(e.target===emailOverlay)closeEmailModal()});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeEmailModal()});
+if(window.matchMedia("(hover:hover)").matches){
+  [emailWidget,emailModalClose,document.querySelector(".email-submit")].forEach(function(el){
+    if(!el)return;
+    el.addEventListener("mouseenter",function(){if(typeof ring!=="undefined")ring.classList.add("hovered")});
+    el.addEventListener("mouseleave",function(){if(typeof ring!=="undefined")ring.classList.remove("hovered")});
+  });
+}
+
 })();
 </script>
 </body>
 </html>
+
