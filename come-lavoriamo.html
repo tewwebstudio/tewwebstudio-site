@@ -16,6 +16,9 @@
 <meta property="og:locale" content="it_IT"/>
 <meta property="og:url" content="https://www.tevwebstudio.it/come-lavoriamo.html"/>
 <link rel="canonical" href="https://www.tevwebstudio.it/come-lavoriamo.html"/>
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css"/>
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css"/>
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -88,7 +91,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 24px;display:f
 .deep-inner{max-width:700px;margin:0 auto}
 
 .deep-header{display:flex;align-items:flex-start;gap:18px;margin-bottom:20px}
-.deep-planet-icon{font-size:2.4rem;line-height:1;flex-shrink:0;margin-top:2px}
+.deep-planet-icon{font-size:2.6rem;line-height:1;flex-shrink:0;margin-top:4px;color:var(--accent-color)}
 .deep-label{display:block;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:6px}
 .deep-h{font-family:"Instrument Serif",serif;font-size:clamp(1.5rem,5vw,2.2rem);font-weight:400;letter-spacing:-.02em;line-height:1.15}
 
@@ -183,12 +186,30 @@ footer{position:relative;z-index:10;border-top:1px solid rgba(255,255,255,.06);p
 .email-submit:hover{opacity:.88;transform:translateY(-1px)}
 .email-modal-close{position:absolute;top:16px;right:18px;background:none;border:none;color:rgba(255,255,255,.3);font-size:1rem;cursor:pointer;transition:color .2s;padding:4px;line-height:1}
 .email-modal-close:hover{color:rgba(255,255,255,.7)}
+.deep-card-title i{font-size:1rem;vertical-align:middle;margin-right:6px;color:var(--accent-color)}
+/* ── STARS ── */
+.stars-layer{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.stars-s,.stars-m,.stars-l{position:absolute;inset:0}
+.stars-s{background:transparent;box-shadow:120px 80px 0 0 rgba(255,255,255,.35),240px 200px 0 0 rgba(255,255,255,.25),380px 60px 0 0 rgba(255,255,255,.3),500px 150px 0 0 rgba(255,255,255,.2),650px 90px 0 0 rgba(255,255,255,.35),780px 220px 0 0 rgba(255,255,255,.25),900px 50px 0 0 rgba(255,255,255,.3),1050px 170px 0 0 rgba(255,255,255,.2),1180px 110px 0 0 rgba(255,255,255,.35),1300px 240px 0 0 rgba(255,255,255,.25),60px 320px 0 0 rgba(255,255,255,.2),200px 400px 0 0 rgba(255,255,255,.3),350px 480px 0 0 rgba(255,255,255,.25),480px 350px 0 0 rgba(255,255,255,.35),620px 440px 0 0 rgba(255,255,255,.2),760px 300px 0 0 rgba(255,255,255,.3),880px 420px 0 0 rgba(255,255,255,.25),1020px 380px 0 0 rgba(255,255,255,.35),1150px 460px 0 0 rgba(255,255,255,.2),1280px 320px 0 0 rgba(255,255,255,.3),80px 560px 0 0 rgba(255,255,255,.25),220px 640px 0 0 rgba(255,255,255,.35),400px 580px 0 0 rgba(255,255,255,.2),540px 700px 0 0 rgba(255,255,255,.3),700px 620px 0 0 rgba(255,255,255,.25),840px 750px 0 0 rgba(255,255,255,.35),960px 600px 0 0 rgba(255,255,255,.2),1100px 680px 0 0 rgba(255,255,255,.3),1240px 560px 0 0 rgba(255,255,255,.25),160px 860px 0 0 rgba(255,255,255,.35),310px 780px 0 0 rgba(255,255,255,.2),460px 900px 0 0 rgba(255,255,255,.3),600px 840px 0 0 rgba(255,255,255,.25),740px 920px 0 0 rgba(255,255,255,.35),900px 800px 0 0 rgba(255,255,255,.2),1060px 880px 0 0 rgba(255,255,255,.3),1200px 760px 0 0 rgba(255,255,255,.25);width:1px;height:1px;border-radius:50%;animation:starPulse1 4s ease-in-out infinite}
+.stars-m{background:transparent;box-shadow:170px 130px 0 0.5px rgba(255,255,255,.2),420px 280px 0 0.5px rgba(255,255,255,.15),700px 180px 0 0.5px rgba(255,255,255,.2),950px 320px 0 0.5px rgba(255,255,255,.15),1150px 200px 0 0.5px rgba(255,255,255,.2),280px 520px 0 0.5px rgba(255,255,255,.15),580px 460px 0 0.5px rgba(255,255,255,.2),830px 540px 0 0.5px rgba(255,255,255,.15),1080px 480px 0 0.5px rgba(255,255,255,.2),140px 720px 0 0.5px rgba(255,255,255,.15),490px 800px 0 0.5px rgba(255,255,255,.2),760px 740px 0 0.5px rgba(255,255,255,.15),1020px 820px 0 0.5px rgba(255,255,255,.2),330px 960px 0 0.5px rgba(255,255,255,.15),680px 1000px 0 0.5px rgba(255,255,255,.2);width:1.5px;height:1.5px;border-radius:50%;animation:starPulse2 6s ease-in-out 1s infinite}
+.stars-l{background:transparent;box-shadow:300px 160px 0 1px rgba(255,255,255,.12),720px 400px 0 1px rgba(180,140,255,.15),1100px 280px 0 1px rgba(255,255,255,.1),450px 680px 0 1px rgba(180,140,255,.12),870px 600px 0 1px rgba(255,255,255,.12),200px 880px 0 1px rgba(180,140,255,.1),650px 920px 0 1px rgba(255,255,255,.12);width:2px;height:2px;border-radius:50%;animation:starPulse3 8s ease-in-out 2s infinite}
+@keyframes starPulse1{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes starPulse2{0%,100%{opacity:.4}50%{opacity:.85}}
+@keyframes starPulse3{0%,100%{opacity:.5}50%{opacity:1}}
+/* ── VIGNETTE ── */
+.vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 80% 80% at 50% 50%,transparent 40%,rgba(7,6,15,.55) 75%,rgba(7,6,15,.88) 100%)}
 </style>
 </head>
 <body>
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
 <div class="aurora"><div class="blob blob1"></div><div class="blob blob2"></div><div class="blob blob3"></div><div class="blob blob4"></div></div>
+<div class="stars-layer">
+  <div class="stars-s"></div>
+  <div class="stars-m"></div>
+  <div class="stars-l"></div>
+</div>
+<div class="vignette"></div>
 
 <nav>
   <span class="nav-brand">T&amp;V Web Studio</span>
@@ -223,7 +244,7 @@ footer{position:relative;z-index:10;border-top:1px solid rgba(255,255,255,.06);p
 <section id="codice-artigianale" class="deep-section" style="--accent-color:#6e9fff;--accent-rgb:110,159,255;--planet-color:#6e9fff">
   <div class="deep-inner rv">
     <div class="deep-header">
-      <span class="deep-planet-icon">💻</span>
+      <span class="deep-planet-icon"><i class="ph-light ph-code"></i></span>
       <div>
         <span class="deep-label">Sviluppo</span>
         <h2 class="deep-h">Sviluppo Artigianale: perché evitiamo WordPress e i template</h2>
@@ -236,16 +257,16 @@ footer{position:relative;z-index:10;border-top:1px solid rgba(255,255,255,.06);p
         <h4>Perché questo conta per te</h4>
         <div class="deep-cards">
           <div class="deep-card">
-            <div class="deep-card-title">⚡ Velocità imbattibile</div>
+            <div class="deep-card-title"><i class="ph ph-lightning"></i> Velocità imbattibile</div>
             <div class="deep-card-body">Un sito WordPress medio deve caricare il CMS, il database, i plugin di sicurezza, quelli SEO, quelli di cache, il costruttore visivo. Il risultato è una pagina che pesa spesso 3–5MB e impiega 4–6 secondi ad apparire su mobile.<br><br>I nostri siti pesano in media meno di 500KB e caricano in meno di un secondo. Per Google, la velocità è un fattore di ranking ufficiale. Per l'utente, è il confine tra restare sul sito e chiuderlo.</div>
             <div class="deep-card-source">Il 53% degli utenti mobile abbandona una pagina che impiega più di 3 secondi a caricarsi. — Google/Deloitte</div>
           </div>
           <div class="deep-card">
-            <div class="deep-card-title">🔒 Sicurezza totale</div>
+            <div class="deep-card-title"><i class="ph ph-lock"></i> Sicurezza totale</div>
             <div class="deep-card-body">WordPress è il CMS più usato al mondo, il che lo rende anche il più attaccato. Oltre il 90% degli attacchi hacker ai siti web colpisce installazioni WordPress attraverso plugin vulnerabili o temi non aggiornati.<br><br>Un sito in codice statico non ha database, non ha pannello di amministrazione esposto, non ha plugin da aggiornare. Non c'è nulla da attaccare.</div>
           </div>
           <div class="deep-card">
-            <div class="deep-card-title">🎨 Design senza compromessi</div>
+            <div class="deep-card-title"><i class="ph ph-paint-brush"></i> Design senza compromessi</div>
             <div class="deep-card-body">Quando si lavora con un template, il design si adatta al template — non il contrario. Ci sono limiti strutturali che nessuna personalizzazione può superare.<br><br>Con il codice artigianale, costruiamo l'interfaccia attorno al tuo brand dall'inizio, senza vincoli. Il risultato è un'identità visiva che non somiglia a nessun altro sito che il tuo cliente ha già visto.</div>
           </div>
         </div>
@@ -264,7 +285,7 @@ footer{position:relative;z-index:10;border-top:1px solid rgba(255,255,255,.06);p
 <section id="landing-page" class="deep-section alt-bg" style="--accent-color:#ff6e8a;--accent-rgb:255,110,138;--planet-color:#ff6e8a">
   <div class="deep-inner rv">
     <div class="deep-header">
-      <span class="deep-planet-icon">🎯</span>
+      <span class="deep-planet-icon"><i class="ph-light ph-cursor-click"></i></span>
       <div>
         <span class="deep-label">Landing Page</span>
         <h2 class="deep-h">Landing Page: l'ingegneria della conversione</h2>
@@ -304,7 +325,7 @@ footer{position:relative;z-index:10;border-top:1px solid rgba(255,255,255,.06);p
 <section id="meta-ads" class="deep-section" style="--accent-color:#ffb347;--accent-rgb:255,179,71;--planet-color:#ffb347">
   <div class="deep-inner rv">
     <div class="deep-header">
-      <span class="deep-planet-icon">📈</span>
+      <span class="deep-planet-icon"><i class="ph-light ph-megaphone-simple"></i></span>
       <div>
         <span class="deep-label">Meta Ads</span>
         <h2 class="deep-h">Ottimizzazione per Meta Ads: la pagina vale quanto l'annuncio</h2>
@@ -342,7 +363,7 @@ footer{position:relative;z-index:10;border-top:1px solid rgba(255,255,255,.06);p
 <section id="seo-locale" class="deep-section alt-bg" style="--accent-color:#7eeea0;--accent-rgb:126,238,160;--planet-color:#7eeea0">
   <div class="deep-inner rv">
     <div class="deep-header">
-      <span class="deep-planet-icon">🔍</span>
+      <span class="deep-planet-icon"><i class="ph-light ph-magnifying-glass"></i></span>
       <div>
         <span class="deep-label">SEO</span>
         <h2 class="deep-h">SEO Locale: il cliente che ti trova quando è già pronto a comprare</h2>
@@ -396,7 +417,7 @@ footer{position:relative;z-index:10;border-top:1px solid rgba(255,255,255,.06);p
 <section id="performance" class="deep-section" style="--accent-color:#f9e040;--accent-rgb:249,224,64;--planet-color:#f9e040">
   <div class="deep-inner rv">
     <div class="deep-header">
-      <span class="deep-planet-icon">⚡</span>
+      <span class="deep-planet-icon"><i class="ph-light ph-lightning"></i></span>
       <div>
         <span class="deep-label">Performance</span>
         <h2 class="deep-h">Performance: perché la velocità è la funzionalità più importante</h2>
@@ -439,7 +460,7 @@ footer{position:relative;z-index:10;border-top:1px solid rgba(255,255,255,.06);p
 <section id="team-dedicato" class="deep-section alt-bg" style="--accent-color:#c084fc;--accent-rgb:192,132,252;--planet-color:#c084fc">
   <div class="deep-inner rv">
     <div class="deep-header">
-      <span class="deep-planet-icon">🤝</span>
+      <span class="deep-planet-icon"><i class="ph-light ph-users"></i></span>
       <div>
         <span class="deep-label">Team</span>
         <h2 class="deep-h">Due persone, un progetto, zero burocrazia</h2>
@@ -494,7 +515,7 @@ footer{position:relative;z-index:10;border-top:1px solid rgba(255,255,255,.06);p
 </section>
 
 <footer>
-  <span class="f-brand">T&amp;V Web Studio 2025</span>
+  <span class="f-brand">T&amp;V Web Studio 2026</span>
   <div class="f-status"><div class="sdot"></div>Disponibili per nuovi progetti</div>
 </footer>
 
